@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import Carousel from '../components/carousel';
 
 const Home = () => (
   <div>
@@ -181,6 +182,13 @@ const Home = () => (
       </div>
     </div>
   </div>
+
+  <div className = 'col-lg-9'>
+    <Carousel/>
+  
+  </div>
+
+
   <footer className="py-5 bg-dark">
     <div className="container">
       <p className="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
