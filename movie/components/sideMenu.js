@@ -28,11 +28,12 @@ const SideMenu = (props) => {
             <div>
             {/*    <button onClick = {increment} className = "btn btn-info m-2"> Increment Number</button>
                 <button onClick = {decrement} className = "btn btn-info m-2" > Decrement Number </button>
-            */}
+            
                 <div className = "w-25 mx-auto">
-                <h1> {props.count} </h1>    
-                
+                    <h1> {props.count} </h1>    
                 </div>
+            */}    
+            
             </div>
         </div>
     )

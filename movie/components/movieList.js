@@ -2,41 +2,41 @@ import React from 'react';
 
 class MovieList extends React.Component {
 
-    state  = {
-        count: 0,
+    // state  = {
+    //     count: 0,
     
-    }
+    // }
 
 
-     increment = () => {
+    //  increment = () => {
 
         
 
-        // better way
-        this.setState( prevState => {
-            return {count: prevState.count + 1}
-        })
+    //     // better way
+    //     this.setState( prevState => {
+    //         return {count: prevState.count + 1}
+    //     })
 
-        // not good if React batches mutliple changes together    
-        // const {count} = this.state;
-        // this.setState({count: count + 1})
+    //     // not good if React batches mutliple changes together    
+    //     // const {count} = this.state;
+    //     // this.setState({count: count + 1})
 
-     }
+    //  }
 
-    // this is not bound as with arrow function
-    // notice how onClick is setup with anonymous function
-    decrement () {
-        // better way
-        this.setState( prevState => {
-            return {count: prevState.count - 1}
-        })
+    // // this is not bound as with arrow function
+    // // notice how onClick is setup with anonymous function
+    // decrement () {
+    //     // better way
+    //     this.setState( prevState => {
+    //         return {count: prevState.count - 1}
+    //     })
     
-        // not good if React batches mutliple changes together 
-        // const {count} = this.state;
-        // this.setState({count: count - 1})
+    //     // not good if React batches mutliple changes together 
+    //     // const {count} = this.state;
+    //     // this.setState({count: count - 1})
 
 
-    }   
+    // }   
 
 
     render () {
@@ -44,14 +44,15 @@ class MovieList extends React.Component {
 
         return (
             <React.Fragment>
-                
+                {/*
                 <div>
                     <button onClick = {this.increment} className = "btn btn-primary m-2"> Increment Number</button>
                     <button onClick = {() => this.decrement()} className = "btn btn-primary m-2" > Decrement Number </button>
 
-                    <h1 className = "w-25"> {this.state.count} </h1>    
-                </div>
+                    <h1 className = "w-25"> {this.state.count} </h1>
 
+                </div>
+                */}
 
 
                 <div className="col-lg-4 col-md-6 mb-4">

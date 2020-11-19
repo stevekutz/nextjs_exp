@@ -6,18 +6,21 @@ import Carousel from '../components/carousel';
 import MovieList from '../components/movieList';
 import Footer from '../components/footer';
 
+// JSON data represents API response
+import {MOVIE_DATA} from './data/movie_data';
+
+
 const Home = () => {
-    const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
 
 
-    const increment = () => {
-        setCount(count + 1);
-    }
+    // const increment = () => {
+    //     setCount(count + 1);
+    // }
 
-    const decrement = () => {
-        setCount(count - 1);
-    
-    }
+    // const decrement = () => {
+    //     setCount(count - 1);
+    // }
     
     return (
         <div>
@@ -33,13 +36,15 @@ const Home = () => {
 
             <div className = "home-page">
                 <div className="container">
+                    {/*
                     <button onClick = {increment} className = "btn btn-info m-2"> Increment Number</button>
                     <button onClick = {decrement} className = "btn btn-info m-2" > Decrement Number </button>
-
+                    */}    
                     <div className="row">
                         <div className="col-lg-3">
-                            <SideMenu 
-                                count = {count}
+                            <SideMenu
+                                appName = {"Movie DB"} 
+                                // count = {count}
                             />
                         </div>
                         <div className="col-lg-9">
