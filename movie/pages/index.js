@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Head from 'next/head'   // example of importing from node_modules
 import Navbar from '../components/navbar';
 import SideMenu from '../components/sideMenu';
@@ -7,21 +7,40 @@ import MovieList from '../components/movieList';
 import Footer from '../components/footer';
 
 // JSON data represents API response
-import {MOVIE_DATA} from './data/movie_data';
+import {getMovies} from '../actions/movie_data';
 
 
 const Home = () => {
-    // const [count, setCount] = useState(0);
+
+    // initialize state to empty array and then update from Promise
+    const [movies, setMovies] = useState([]);
+    const [count, setCount] = useState(0);
 
 
-    // const increment = () => {
-    //     setCount(count + 1);
-    // }
 
-    // const decrement = () => {
-    //     setCount(count - 1);
-    // }
+    // simulate API call from movie_data Promise
+    useEffect ( () => {
+        console.log('UseEffect called')
+        
+        // method 1 to handle simulated async call
+        // getMovies()
+        //     .then( (movies) => {
+        //         setMovies(movies)    
+        // })
+
+        // method 2 to handle simulated async call
+        //      add async before calling a function withinin useEffect
+        const asyncFetch = async () => {
+            const fetchMovies = await getMovies()
+            setMovies(fetchMovies)
     
+        }
+
+        asyncFetch()
+    
+    }, [count])
+
+
     return (
         <div>
             <Head>
@@ -40,6 +59,8 @@ const Home = () => {
                     <button onClick = {increment} className = "btn btn-info m-2"> Increment Number</button>
                     <button onClick = {decrement} className = "btn btn-info m-2" > Decrement Number </button>
                     */}    
+
+                    <button onClick = {() => setCount(count + 1)}> Update count {count}</button>
                     <div className="row">
                         <div className="col-lg-3">
                             <SideMenu
@@ -51,7 +72,7 @@ const Home = () => {
                             <Carousel />
                             <div className="row">
                                 <MovieList 
-                                    movies = {MOVIE_DATA}        
+                                    movies = {movies}        
                                 />
                             </div>
                         </div>

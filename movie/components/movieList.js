@@ -2,6 +2,16 @@ import React from 'react';
 
 class MovieList extends React.Component {
 
+    shortenText = (text, maxLength) => {
+        if(text && text.length >= maxLength) {
+            return text.substr(0, maxLength) + '...';
+        }
+    
+    }
+
+
+
+
 
     renderMovies() {
 
@@ -9,7 +19,7 @@ class MovieList extends React.Component {
         const {movies} = this.props
         // console.log(movies);    
 
-        return movies.map((movie, key) => 
+        return movies.map((movie) => 
                 
             (
                 <div key = {movie.id}   className="col-lg-4 col-md-6 mb-4">
@@ -26,7 +36,7 @@ class MovieList extends React.Component {
                                 <a href="#">{movie.name}</a>
                             </h4>
                             <h5>{movie.releaseYear}</h5>
-                            <p className="card-text">{movie.description}</p>
+                            <p className="card-text">{this.shortenText(movie.description, 100)}</p>
                         </div>
                         <div className="card-footer">
                             <small className="text-muted">Rating:{movie.rating}</small>
