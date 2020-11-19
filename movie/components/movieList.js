@@ -2,9 +2,58 @@ import React from 'react';
 
 class MovieList extends React.Component {
 
+    state  = {
+        count: 0,
+    
+    }
+
+
+     increment = () => {
+
+        
+
+        // better way
+        this.setState( prevState => {
+            return {count: prevState.count + 1}
+        })
+
+        // not good if React batches mutliple changes together    
+        // const {count} = this.state;
+        // this.setState({count: count + 1})
+
+     }
+
+    // this is not bound as with arrow function
+    // notice how onClick is setup with anonymous function
+    decrement () {
+        // better way
+        this.setState( prevState => {
+            return {count: prevState.count - 1}
+        })
+    
+        // not good if React batches mutliple changes together 
+        // const {count} = this.state;
+        // this.setState({count: count - 1})
+
+
+    }   
+
+
     render () {
+
+
         return (
             <React.Fragment>
+                
+                <div>
+                    <button onClick = {this.increment} className = "btn btn-primary m-2"> Increment Number</button>
+                    <button onClick = {() => this.decrement()} className = "btn btn-primary m-2" > Decrement Number </button>
+
+                    <h1 className = "w-25"> {this.state.count} </h1>    
+                </div>
+
+
+
                 <div className="col-lg-4 col-md-6 mb-4">
                         <div className="card h-100">
                             <a href="#"><img className="card-img-top" src="http://placehold.it/700x400" alt="" /></a>

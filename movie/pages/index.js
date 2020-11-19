@@ -1,5 +1,5 @@
 import React from 'react'
-import Head from 'next/head'
+import Head from 'next/head'   // example of importing from node_modules
 import Navbar from '../components/navbar';
 import SideMenu from '../components/sideMenu';
 import Carousel from '../components/carousel';
@@ -18,24 +18,34 @@ const Home = () => (
 
         <Navbar />
 
-        <div className="container">
-            <div className="row">
-
-                <div className="col-lg-3">
-                    <SideMenu />
-                </div>
-
-                <div className="col-lg-9">
-                    <Carousel />
-                    <div className="row">
-                        <MovieList />
+        <div className = "home-page">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-3">
+                        <SideMenu />
+                    </div>
+                    <div className="col-lg-9">
+                        <Carousel />
+                        <div className="row">
+                            <MovieList />
+                        </div>
                     </div>
                 </div>
-
             </div>
-        </div>
 
-        <Footer />
+            <Footer />
+
+
+
+            {/* example of using styled-jsx */}        
+            <style jsx> {`
+                .home-page {
+                    padding-top: 80px;
+                }
+            `}</style>        
+
+
+        </div>
 
     </div>
 )
