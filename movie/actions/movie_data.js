@@ -1,3 +1,6 @@
+// without getMovies function to emualate API GET requesdt
+// export const MOVIE_DATA
+
 const MOVIE_DATA = [
   {
     id: '1',

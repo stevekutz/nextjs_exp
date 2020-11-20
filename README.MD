@@ -37,7 +37,7 @@
 
 
 
-3) Styling in `Next.js` can be applied in a varity of ways:
+3) Styling in `Next.js` can be applied in a variety of ways:
    - Global stylesheets (require importing the CSS file from within `pages/_app.js`)
    - Importing styles from `node_modules`
    - CSS modules
