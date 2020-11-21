@@ -100,40 +100,45 @@ import {getMovies} from '../actions/movie_data';
 // }
 
 class Home extends React.Component {
-    // legacy way with constuctor
-    constructor(props){
-        super(props);
-        this.state = {
-            movies: [],
-            count: 0,
-
-        }
-    
-    }
-    
-    // modern way without constuctor
-    // state = {
-    //     movies: [],
-    //     count: 0,
+    // // legacy way with constuctor
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         movies: [],
+    //         count: 0,
+    //         errorMessage: 'Data not available',
+    //     }
     
     // }
+    
+    // modern way without constuctor
+    state = {
+        movies: [],
+        count: 0,
+        errorMessage: '',
+    }
 
+    // like useEffect
     async componentDidMount () {
         await getMovies()
             .then( (movies) => 
                 {
+                    // like useState
                     this.setState({movies}) // same as ({movies: movies})
                 }            
             )
-    
-    
+            .catch( (error) => {
+                console.log('ERRROR')
+                alert(error)
+                this.setState({errorMessage: error})
+            })
     }
 
 
 
     render() {
         // desctructure movies
-        const {movies} = this.state
+        const {movies, errorMessage} = this.state
 
         return (
             <div>
@@ -158,10 +163,19 @@ class Home extends React.Component {
                             </div>
                             <div className="col-lg-9">
                                 <Carousel />
-                                <div className="row">
-                                    <MovieList 
-                                        movies = {movies}        
-                                    />
+                                <div className="row justify-content-center">
+                                    
+                                    {(errorMessage.length) 
+                                        ?
+                                            <h1 className = "alert alert-warning rounded-pill"> {errorMessage}</h1>
+                                        :
+                                            <MovieList 
+                                                movies = {movies}        
+                                            />
+                                    }
+                                    
+
+
                                 </div>
                             </div>
                         </div>
