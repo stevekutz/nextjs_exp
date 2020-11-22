@@ -1,15 +1,15 @@
 import React from 'react';
 
 
-// const About = () => {
+const About = () => {
     
     
-//     return (
+    return (
     
-//     <h1> About Page </h1>
+    <h1> About Page </h1>
     
-//     )
-// }
+    )
+}
 
 // const About = () => {
 //     const message = 'message text';
@@ -18,13 +18,13 @@ import React from 'react';
 
 // }
 
-class About extends React.Component {
-  render() {
-    return (
-      <h1>Hello I am class component</h1>
-    )
-  }
-}
+// class About extends React.Component {
+//   render() {
+//     return (
+//       <h1>Hello I am class component</h1>
+//     )
+//   }
+// }
 
 
 

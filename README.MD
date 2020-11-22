@@ -42,3 +42,5 @@
    - Importing styles from `node_modules`
    - CSS modules
    - `styled jsx`
+
+4) Pages created in the `pages` folder can be accessed as a route (e.g. /pages/about)

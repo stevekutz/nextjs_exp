@@ -54,7 +54,7 @@ const Home = (props) => {
 
                             
                                 <MovieList 
-                                    movies = {movies}        
+                                    movies = {props.movies || []}        
                                 />
 
 
