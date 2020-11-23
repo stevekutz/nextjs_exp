@@ -90,3 +90,5 @@
 
    }
    ~~~
+
+6) `Next.js` supports `dynamic routing`. This is allows a single file that can be used to render multiple movie detail pages based on the `id` of the movie using square brackets (e.g.  [id].js ).   
