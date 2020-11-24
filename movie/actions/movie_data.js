@@ -1,6 +1,8 @@
 // without getMovies function to emualate API GET requesdt
 // export const MOVIE_DATA
 
+import { resolve } from "path"
+
 const MOVIE_DATA = [
   {
     id: '1',
@@ -38,7 +40,22 @@ export const getMovies = () => {
             reject('Cannot connect to data')
         }, 50)
     })
+}
 
+export const getMovieById = (id) => {
+
+  return new Promise( (resolve, reject) => {
+    const movieIndex  = MOVIE_DATA.findIndex( (movie) => {
+      return  movie.id === id
+    })
+    const movie = MOVIE_DATA[movieIndex]
+
+    setTimeout( () => {
+      resolve(movie, 50)
+    
+    }, 50) 
+  
+  })
 
 
 }
