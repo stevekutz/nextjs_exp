@@ -37,21 +37,21 @@ const Movie = (props) => {
 
 export default Movie;
 
-Movie.getInitialProps = async ({query}) => {
-    // const {id} = context.query.id
-    const movie = await getMovieById(query.id)
-    return {movie}
-}
-
-
-
-// export async function getStaticPaths(context) {
-//     const {id} = context.query.id
-//     const movie = await getMovieById(id)
-
-//     return {
-//         props: {
-//             movie,
-//         },
-//     }
+// Movie.getInitialProps = async ({query}) => {
+//     // const {id} = context.query.id
+//     const movie = await getMovieById(query.id)
+//     return {movie}
 // }
+
+
+
+export async function getServerSideProps(context) {
+    const {id} = context.query.id
+    const movie = await getMovieById(id)
+
+    return {
+        props: {
+            movie,
+        },
+    }
+}
