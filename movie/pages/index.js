@@ -10,7 +10,7 @@ import {getMovies} from '../actions/movie_data';
 
 const Home = (props) => {
 
-    const {movies, message} = props;
+    const {movies, message, images} = props;
 
     
     // console.log(props)
@@ -29,7 +29,7 @@ const Home = (props) => {
                             />
                         </div>
                         <div className="col-lg-9">
-                            <Carousel />
+                            <Carousel images = {images}/>
                             <div className="row justify-content-center">
                                 {/* 
                                 {(errorMessage.length) 
@@ -78,6 +78,14 @@ export async function getStaticProps(context) {
     const movies = await getMovies();
     const message = 'Data Not Returned from Promise';
 
+    const images = movies.map( (movie) => {
+        return {
+            id: `image-${movie.id}`,
+            url: movie.image,
+            name:  movie.name,
+        }
+    })
+
     if (movies === null) {
         return {
             notFound: true,
@@ -90,6 +98,7 @@ export async function getStaticProps(context) {
         props: {
             movies,
             message,
+            images,
         },
     }
 }
