@@ -20,11 +20,18 @@ const Carousel = (props) => {
             {images.map((image, index) => {
                 return (
                     <div className={`carousel-item ${index === 0 ? "active" : ""}`}>
-                        <img 
-                            className="d-block img-fluid" 
-                            src={image.url} 
-                            alt={image.name} 
-                        />
+                        <div className = "d-flex justify-content-center align-items-center" style = {{height: "275px"}}>
+                        
+                            <img 
+                                className="d-block img-fluid" 
+                                src={image.url} 
+                                alt={image.name}
+                                style = {{width: "60%"}} 
+                            />
+                        
+                        
+                        
+                        </div>
                     </div>
                 )
             })}

@@ -27,11 +27,19 @@ class MovieList extends React.Component {
                         {/* <Link href = {'/movies/' + movie.id}> */}
                         <Link href = "/movies/[id]" as = {`/movies/${movie.id}`}>
                             <a >
-                                <img 
-                                    className="card-img-top" 
-                                    src={movie.image} 
-                                    alt="Movie pic" 
-                                    height = "150px"/>
+                                <div style = {{display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
+                                    <img 
+                                        className="card-img-top" 
+                                        src={movie.image} 
+                                        alt="Movie pic" 
+                                        // width = "100%"
+                                        height = "140px"
+                                    />
+                                
+                                
+                                
+                                </div>
+                                    
                             </a>
                         
                         </Link>
