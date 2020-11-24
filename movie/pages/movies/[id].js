@@ -6,22 +6,29 @@ const Movie = (props) => {
 
     const router = useRouter();
     const {id} = router.query
+    const {name, description, longDesc, genre} = props.movie
 
     console.log('===> Movie props ', props)
 
     return  (
         <div className = "container">
             <div className="jumbotron">
-                <h1 className="display-4">{props.movie.name}</h1>
-                <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <h1 className="display-4">{name}</h1>
+                <p className="lead">{description}</p>
                 <hr className="my-4"/>
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p>{genre}</p>
                 <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
             </div>        
-            <p>
-                Some description about Movie
+            <p className = "desc-text">
+                {longDesc}
             </p>
-
+            <style jsx>{`
+                .desc-text {
+                    font-size: 12px;
+                }
+            
+            `}
+            </style>
 
         </div>
     
@@ -30,15 +37,17 @@ const Movie = (props) => {
 
 export default Movie;
 
-Movie.getInitialProps = async () => {
-    const movie = await getMovieById("2")
+Movie.getInitialProps = async ({query}) => {
+    // const {id} = context.query.id
+    const movie = await getMovieById(query.id)
     return {movie}
 }
 
 
 
-// export async function getStaticProps() {
-//     const movie = await getMovieById("2")
+// export async function getStaticPaths(context) {
+//     const {id} = context.query.id
+//     const movie = await getMovieById(id)
 
 //     return {
 //         props: {
