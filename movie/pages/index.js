@@ -5,12 +5,12 @@ import MovieList from '../components/movieList';
 
 
 // JSON data represents API response
-import {getMovies} from '../actions/movie_data';
+import {getMovies, getCategories} from '../actions/movie_data';
 
 
 const Home = (props) => {
 
-    const {movies, message, images} = props;
+    const {categories, movies, message, images} = props;
 
     
     console.log('index.js Home >> ', props)
@@ -24,8 +24,7 @@ const Home = (props) => {
                     <div className="row">
                         <div className="col-lg-3">
                             <SideMenu
-                                appName = {"Movie DB"} 
-                                // count = {count}
+                                categories = {categories}
                             />
                         </div>
                         <div className="col-lg-9">
@@ -76,6 +75,7 @@ const Home = (props) => {
 
 export async function getStaticProps(context) {
     const movies = await getMovies();
+    const categories = await getCategories();
     const message = 'Data Not Returned from Promise';
 
     const images = movies.map( (movie) => {
@@ -86,6 +86,10 @@ export async function getStaticProps(context) {
             name:  movie.name,
         }
     })
+
+
+
+
 
     if (movies === null) {
         return {
@@ -100,6 +104,7 @@ export async function getStaticProps(context) {
             movies,
             message,
             images,
+            categories,
         },
     }
 }

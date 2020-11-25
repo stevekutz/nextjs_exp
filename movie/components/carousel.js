@@ -21,7 +21,7 @@ const Carousel = (props) => {
         <div className="carousel-inner" role="listbox">
             {images.map((image, index) => {
                 return (
-                    <div key = {image.name} className={`carousel-item ${index === 0 ? "active" : ""}`}>
+                    <div key = {image.id} className={`carousel-item ${index === 0 ? "active" : ""}`}>
                         <div className = "d-flex justify-content-center align-items-center" style = {{height: "275px"}}>
                         
                             <img 
