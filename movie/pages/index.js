@@ -13,7 +13,7 @@ const Home = (props) => {
     const {movies, message, images} = props;
 
     
-    // console.log(props)
+    console.log('index.js Home >> ', props)
 
     return (
         <div>
@@ -42,9 +42,9 @@ const Home = (props) => {
                                 }
                                 */}
 
-                            
+                                                                
                                 <MovieList 
-                                    movies = {props.movies || []}        
+                                    movies = {movies || []}        
                                 />
 
 
@@ -110,8 +110,19 @@ export async function getStaticProps(context) {
 //     const movies = await getMovies();
 //     const message = 'Static props passed in again';
 
+//     const images = movies.map( (movie) => {
+//         return {
+//             id: `image-${movie.id}`,
+//             url: movie.image,
+//             // url: movie.cover,
+//             // name:  movie.name,
+//         }
+//     })
+
+
 //     return {
-//         movies
+//         movies,
+//         images
 //     }
 
 // }

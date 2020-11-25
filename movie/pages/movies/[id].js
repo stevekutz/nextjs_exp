@@ -5,7 +5,7 @@ import {getMovieById} from '../../actions/movie_data';
 const Movie = (props) => {
 
     const router = useRouter();
-    const {id} = router.query
+    // const {id} = router.query
     const {name, description, longDesc, genre} = props.movie
 
     console.log('===> Movie props ', props)
@@ -46,12 +46,16 @@ export default Movie;
 
 
 export async function getServerSideProps(context) {
-    const {id} = context.query.id
+    const {id} = context.query
     const movie = await getMovieById(id)
-
+    
+    // const movie = await getMovieById(context.query.id)
+    
     return {
         props: {
             movie,
         },
+
+
     }
 }

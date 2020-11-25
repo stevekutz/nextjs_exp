@@ -1,6 +1,7 @@
 const Carousel = (props) => {
 
     const {images} = props;
+    console.log("> > > images ", props.images)
 
   return (
     <div id="carouselExampleIndicators" className="carousel slide my-4" data-ride="carousel">
@@ -8,7 +9,7 @@ const Carousel = (props) => {
             {images.map((image, index) => {
                 return (
                     <li 
-                        key = {image.name}
+                        key = {image.id}
                         data-target="#carouselExampleIndicators" 
                         data-slide-to={index} 
                         className={index === 0 ? "active" : ""}>
@@ -21,7 +22,7 @@ const Carousel = (props) => {
             {images.map((image, index) => {
                 return (
                     <div key = {image.name} className={`carousel-item ${index === 0 ? "active" : ""}`}>
-                        {/* <div className = "d-flex justify-content-center align-items-center" style = {{height: "275px"}}> */}
+                        <div className = "d-flex justify-content-center align-items-center" style = {{height: "275px"}}>
                         
                             <img 
                                 className="d-block img-fluid" 
@@ -32,7 +33,7 @@ const Carousel = (props) => {
                         
                          
                         
-                        {/* </div> */}
+                        </div>
                     </div>
                 )
             })}
@@ -48,14 +49,14 @@ const Carousel = (props) => {
         </a>
         
         {/*    this also works to make images in carousel same size if they are all larger than 400px */}
+        {/*
         <style jsx>{`
             .carousel-item {
                 max-height: 400px;
             }
         `}
-        
-        
         </style>
+        */}
         {/*  */}
 
     </div>
