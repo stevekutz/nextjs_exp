@@ -8,6 +8,7 @@ const Carousel = (props) => {
             {images.map((image, index) => {
                 return (
                     <li 
+                        key = {image.name}
                         data-target="#carouselExampleIndicators" 
                         data-slide-to={index} 
                         className={index === 0 ? "active" : ""}>
@@ -19,19 +20,19 @@ const Carousel = (props) => {
         <div className="carousel-inner" role="listbox">
             {images.map((image, index) => {
                 return (
-                    <div className={`carousel-item ${index === 0 ? "active" : ""}`}>
-                        <div className = "d-flex justify-content-center align-items-center" style = {{height: "275px"}}>
+                    <div key = {image.name} className={`carousel-item ${index === 0 ? "active" : ""}`}>
+                        {/* <div className = "d-flex justify-content-center align-items-center" style = {{height: "275px"}}> */}
                         
                             <img 
                                 className="d-block img-fluid" 
                                 src={image.url} 
                                 alt={image.name}
-                                style = {{width: "60%"}} 
+                                // style = {{width: "60%"}} 
                             />
                         
+                         
                         
-                        
-                        </div>
+                        {/* </div> */}
                     </div>
                 )
             })}
@@ -45,6 +46,18 @@ const Carousel = (props) => {
             <span className="carousel-control-next-icon" aria-hidden="true"></span>
             <span className="sr-only">Next</span>
         </a>
+        
+        {/*    this also works to make images in carousel same size if they are all larger than 400px */}
+        <style jsx>{`
+            .carousel-item {
+                max-height: 400px;
+            }
+        `}
+        
+        
+        </style>
+        {/*  */}
+
     </div>
   )
 }
