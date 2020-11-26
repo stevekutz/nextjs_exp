@@ -4,6 +4,9 @@ import React, {useState} from 'react';
 
 const MovieCreateForm = (props) => {
 
+    const {categories} = props
+
+    console.log('>:>  cat', categories)
 
     const [form, setForm] = useState({
         name: "Add movie name",
@@ -22,10 +25,35 @@ const MovieCreateForm = (props) => {
 
     }
 
+    const handleGenreChange = (e) => {
+        const {options} = e.target
+        const optionsLength = options.length
+        
+        let  value = []
+
+        for(let i  = 0; i < optionsLength; i++) {
+            if (options[i].selected) {
+                value.push(options[i].value)
+            
+            }
+
+        
+        } 
+
+        setForm({
+            ...form,
+            genre: value.toString(),
+        
+        })
+    
+        console.log('form is NOW  ', form);    
+    }
+
+
     return (
         <form>
             <div className="form-group">
-                <label for="name">Name</label>
+                <label htmlFor="name">Name</label>
                 <input 
                     value = {form.name}
                     type="text" 
@@ -38,7 +66,7 @@ const MovieCreateForm = (props) => {
                 />
             </div>
             <div className="form-group">
-                <label for="description">Description</label>
+                <label htmlFor="description">Description</label>
                 <input 
                     value = {form.description}
                     type="text" 
@@ -50,7 +78,7 @@ const MovieCreateForm = (props) => {
                 />
             </div>
             <div className="form-group">
-                <label for="description">Rating</label>
+                <label htmlFor="description">Rating</label>
                 <input 
                     value = {form.rating}
                     type="number" 
@@ -65,7 +93,7 @@ const MovieCreateForm = (props) => {
                 <small id="emailHelp" className="form-text text-muted">Max: 5, Min: 0 </small>
             </div>
             <div className="form-group">
-                <label for="image">Image</label>
+                <label htmlFor="image">Image</label>
                 <input 
                     value = {form.image}
                     type="text" 
@@ -77,7 +105,7 @@ const MovieCreateForm = (props) => {
                 />
             </div>
             <div className="form-group">
-                <label for="cover">Cover</label>
+                <label htmlFor="cover">Cover</label>
                 <input 
                     value = {form.cover}
                     type="text" 
@@ -89,7 +117,7 @@ const MovieCreateForm = (props) => {
                 />
             </div>
             <div className="form-group">
-                <label for="longDesc">Long Description</label>
+                <label htmlFor="longDesc">Long Description</label>
                 <textarea 
                     value = {form.longDesc}
                     className="form-control" 
@@ -102,19 +130,31 @@ const MovieCreateForm = (props) => {
                 </textarea>
             </div>
             <div className="form-group">
-                <label for="genre">Genre</label>
+                <label htmlFor="genre">Genre</label>
                 <select 
                     multiple 
                     className="form-control" 
                     name = "genre"
                     id="genre"
-                    onChange = {handleChange}
+                    onChange = {handleGenreChange}
                 >
+                {/*
                 <option>drama</option>
                 <option>music</option>
                 <option>adventure</option>
                 <option>historical</option>
                 <option>action</option>
+                */}
+
+                {categories.map((cat) => {
+                    return (
+                       <option key = {cat.id}>{cat.name}</option> 
+                    
+                    )
+                
+                
+                })}
+
                 </select>
             </div>
         </form>

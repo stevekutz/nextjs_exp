@@ -79,7 +79,7 @@ export const getCategories = () => {
   return new Promise( (res, rej) => {
     setTimeout(() => {
       res(CATEGORY_DATA)
-      rej('Cannot get category data')
+      rej('Cannot get category')
     }, 20)
 
   })
