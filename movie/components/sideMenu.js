@@ -1,17 +1,29 @@
 import React, {useState} from 'react';
 import Modal from './modal';
 import MovieCreateForm from './MovieCreateForm';
+import {createMovie} from '../actions/movie_data';
 
 const SideMenu = (props) => {
 
     const {categories} = props
     // console.log('categories >>: ', props.categories);
 
+    const handleCreateMovie = (movie) => {
+        createMovie(movie).then( (movies) => {
+            console.log(JSON.stringify(movies))
+        
+        }) 
+    
+    }
+
+
     return (
         <div>
             <Modal>
                 <MovieCreateForm
-                    categories = {categories} 
+                    categories = {categories}
+                    hasSubmit = {false}
+                    handleFormSubmit = {handleCreateMovie} 
                  />
             </Modal>
 

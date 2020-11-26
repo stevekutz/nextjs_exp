@@ -34,19 +34,20 @@ const MovieCreateForm = (props) => {
         for(let i  = 0; i < optionsLength; i++) {
             if (options[i].selected) {
                 value.push(options[i].value)
-            
-            }
-
-        
+            }        
         } 
 
         setForm({
             ...form,
-            genre: value.toString(),
-        
+            genre: value.toString(),     
         })
+   
+    }
+
+
+    const submitForm = () => {
+        props.handleFormSubmit({...form})
     
-        console.log('form is NOW  ', form);    
     }
 
 
@@ -157,6 +158,7 @@ const MovieCreateForm = (props) => {
 
                 </select>
             </div>
+            <button onClick = {submitForm} type="button" className="btn btn-primary">Save changes</button>
         </form>
     )
 
