@@ -8,10 +8,13 @@ const SideMenu = (props) => {
     const {categories} = props
     // console.log('categories >>: ', props.categories);
 
+
+    let modal = null;
+
     const handleCreateMovie = (movie) => {
         createMovie(movie).then( (movies) => {
             console.log(JSON.stringify(movies))
-        
+            modal.closeModal()
         }) 
     
     }
@@ -19,7 +22,7 @@ const SideMenu = (props) => {
 
     return (
         <div>
-            <Modal>
+            <Modal ref = {ele => modal = ele} hasSubmit = {false}>
                 <MovieCreateForm
                     categories = {categories}
                     hasSubmit = {false}

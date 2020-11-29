@@ -9,8 +9,12 @@ const MovieCreateForm = (props) => {
     console.log('>:>  cat', categories)
 
     const [form, setForm] = useState({
-        name: "Add movie name",
-        description: "Your description"
+        name: '',
+        description: '',
+        rating: '',
+        image: '',
+        cover: '',
+        longDesc: '',
     
     })
 
