@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Modal from './modal';
 import MovieCreateForm from './MovieCreateForm';
 import {createMovie} from '../actions/movie_data';
+import ModalFC from './modalFC';
 
 const SideMenu = (props) => {
 
@@ -12,10 +13,11 @@ const SideMenu = (props) => {
     let modal = null;
 
     const handleCreateMovie = (movie) => {
-        createMovie(movie).then( (movies) => {
-            console.log(JSON.stringify(movies))
-            modal.closeModal()
-        }) 
+        createMovie(movie)
+            .then( (movies) => {
+                console.log(JSON.stringify(movies))
+                modal.closeModal()
+            }) 
     
     }
 

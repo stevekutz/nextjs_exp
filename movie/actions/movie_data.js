@@ -1,6 +1,7 @@
 // without getMovies function to emualate API GET requesdt
 // export const MOVIE_DATA
 
+import { get } from "http"
 import { resolve } from "path"
 
 const MOVIE_DATA = [
@@ -67,6 +68,8 @@ export const getMovieById = (id) => {
 
     console.log('getbyId ->', movie);
 
+
+
     setTimeout( () => {
       resolve(movie, 50)
     
@@ -88,6 +91,19 @@ export const getCategories = () => {
 
 export const createMovie = (movie) => {
     return new Promise( (resolve, reject) => {
+
+        // // get a unique id 
+        do {
+          movie.id = Math.random().toString(36).substr(2,7)
+          // console.log('NOT YET >> ',  MOVIE_DATA.some(elem => elem.id === (getMovieById(movie.id)).toString() ))
+          // console.log('exists', MOVIE_DATA.some(elem => elem.id === '1' ))
+        
+            // if id exists, try again to get a unique id
+        } while ( MOVIE_DATA.some(elem => elem.id === (getMovieById(movie.id)).toString()) === true)
+
+
+        // movie.id = Math.random().toString(36).substr(2,7)
+
         MOVIE_DATA.push(movie)
 
         setTimeout( () => {

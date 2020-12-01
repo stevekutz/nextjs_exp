@@ -1,34 +1,34 @@
 import React, {useRef, useEffect} from 'react';
 
 
-class Modal extends React.Component  {
+const Modal = (props ) =>  {
 
     // create a ref to the close button
     // let closeButton = null;
 
-    constructor(props) {
-        super(props)
-        this.closeButton = null
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.closeButton = null
+    // }
 
 
-    // let closeButton = useRef();
+    let closeButton = useRef();
 
 
     // useEffect( () => closeButton.current && closeButton.current.click() )
 
-    closeModal () {
-        this.closeButton.click()
+    const closeModal  = () => {
+        closeButton.current.click()
     }
 
 
-    submitModal = () => {
+    const submitModal = () => {
         alert('Submitting Modal')
-        this.closeModal();
+        closeModal();
     }
 
 
-    render() {
+
         return (
             <div>
                 <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -45,18 +45,14 @@ class Modal extends React.Component  {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                {this.props.children}
+                                {props.children}
                             </div>
                             <div className="modal-footer">
-                                <button ref = {(ele) => this.closeButton = ele} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                {/*
-                                <button onClick={this.submitModal} type="button" className="btn btn-primary">Save changes</button>
-                                */}
-                                
-                                { this.props.hasSubmit && 
-                                    <button onClick={this.submitModal} type="button" className="btn btn-primary">Save changes</button>
+                                <button ref = {closeButton} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                { props.hasSubmit && 
+                                    <button onClick={submitModal} type="button" className="btn btn-primary">Save changes</button>
                                 }    
-                                
+
 
                             </div>
                         </div>
@@ -67,8 +63,7 @@ class Modal extends React.Component  {
             </div>
 
         )
-    
-    }
+
 
 }
 
