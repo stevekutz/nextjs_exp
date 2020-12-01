@@ -92,3 +92,53 @@
    ~~~
 
 6) `Next.js` supports `dynamic routing`. This is allows a single file that can be used to render multiple movie detail pages based on the `id` of the movie using square brackets (e.g.  [id].js ).   
+
+
+
+
+
+
+
+##### Setting up Server
+
+1) Install express   `yarn add express`   or `npm install --save express`
+
+2) Create /server/index.js
+
+   ~~~ js
+   const { createServer } = require('http')
+   const { parse } = require('url')
+   const next = require('next')
+   const express = require('express');
+
+   const dev = process.env.NODE_ENV !== 'production'
+   const app = next({ dev })
+   const handle = app.getRequestHandler()
+
+   app.prepare().then(() => {
+
+   const server = express();
+   server.get('*', (req, res) => {
+      return handle(req, res)
+   })
+
+   const PORT = process.env.PORT || 3000;
+
+   server.use(handle).listen(PORT, (err) => {
+      if (err) throw err
+      console.log('> Ready on port ' + PORT)
+   })
+   })
+
+   ~~~
+
+3) Update package.json to launch server 
+
+   ~~~ json
+   "scripts": {
+      "dev": "node server/index",
+
+   ~~~
+
+
+

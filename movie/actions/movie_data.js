@@ -102,8 +102,6 @@ export const createMovie = (movie) => {
         } while ( MOVIE_DATA.some(elem => elem.id === (getMovieById(movie.id)).toString()) === true)
 
 
-        // movie.id = Math.random().toString(36).substr(2,7)
-
         MOVIE_DATA.push(movie)
 
         setTimeout( () => {
