@@ -132,13 +132,40 @@
 
    ~~~
 
-3) Update package.json to launch server 
-
+3) Install nodemon to allow server restart after modifying files
    ~~~ json
    "scripts": {
-      "dev": "node server/index",
+      "dev": "nodemon server/index",
+
+   ~~~
+
+4) Create some test endpoints and verify in Postman
+
+   ~~~ js
+   // create some pracice custom endpoints
+   server.get('/api/v1/movies', (req, res) => {
+      res.json({message: 'Hello World'})
+   })  
+
+   server.post('/api/v1/movies', (req, res) => {
+      const movie = req.body
+      console.log(JSON.stringify(movie))
+      // res.json({message: 'Saving Post'})
+      return res.json({...movie, created: 'now', author: 'me', rating: 'good'})
+   }) 
+
+      server.patch('/api/v1/movies', (req, res) => {
+      const {id} = req.params
+      res.json({message: `updating post with id: ${id}`})
+   }) 
+
+   server.delete('/api/v1/movies', (req, res) => {
+      const {id} = req.params
+      res.json({message: `Deleting post with id: ${id}`})
+   })
 
    ~~~
 
 
+   <img src = "Postman_1.png "  width = "30%"  alt = "postman-1">
 
