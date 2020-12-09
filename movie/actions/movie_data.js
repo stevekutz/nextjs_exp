@@ -61,6 +61,7 @@ export const getMovies = () => {
     // })
   return axios.get(`${BASE_URL}/api/v1/movies`)
     .then ((res) => {
+    console.log(' >>>> getmovies  ', res.data)
       return res.data
     })
 
@@ -103,23 +104,36 @@ export const getCategories = () => {
 }
 
 export const createMovie = (movie) => {
-    return new Promise( (resolve, reject) => {
-
-        // // get a unique id 
-        do {
-          movie.id = Math.random().toString(36).substr(2,7)
-          // console.log('NOT YET >> ',  MOVIE_DATA.some(elem => elem.id === (getMovieById(movie.id)).toString() ))
-          // console.log('exists', MOVIE_DATA.some(elem => elem.id === '1' ))
-        
-            // if id exists, try again to get a unique id
-        } while ( MOVIE_DATA.some(elem => elem.id === (getMovieById(movie.id)).toString()) === true)
+    // return new Promise( (resolve, reject) => {
 
 
-        MOVIE_DATA.push(movie)
 
-        setTimeout( () => {
-            resolve(MOVIE_DATA)
-            reject('Cannot connect to data')
-        }, 50)
-    })
+    //     MOVIE_DATA.push(movie)
+
+    //     setTimeout( () => {
+    //         resolve(MOVIE_DATA)
+    //         reject('Cannot connect to data')
+    //     }, 50)
+    // })
+
+  // // get a unique id 
+
+  // const movieList = getMovies()
+  // console.log('>>> movieList ', movieList)
+
+
+  // do {
+  //   movie.id = Math.random().toString(36).substr(2,7)
+  //   console.log('NOT YET >> ',  movieList.some(elem => elem.id === (getMovieById(movieList.id)).toString() ))
+  //   console.log('exists', movieList.some(elem => elem.id === '1' ))
+  
+  // // if id exists, try again to get a unique id
+  // } while ( movieList.some(elem => elem.id === (getMovieById(movieList.id)).toString()) === true)
+
+  movie.id = Math.random().toString(36).substr(2,7)
+
+  return axios.post(`${BASE_URL}/api/v1/movies`, movie)
+    .then((res) => res.data)  
+
+
 }

@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
-import Modal from './modal';
-import MovieCreateForm from './MovieCreateForm';
-import {createMovie} from '../actions/movie_data';
-import ModalFC from './modalFC';
+import React, {useState} from 'react'
+import {useRouter} from 'next/router'
+import Modal from './modal'
+import MovieCreateForm from './MovieCreateForm'
+import {createMovie} from '../actions/movie_data'
+// import ModalFC from './modalFC'
 
 const SideMenu = (props) => {
 
     const {categories} = props
+    const router = useRouter()
     // console.log('categories >>: ', props.categories);
 
 
@@ -15,8 +17,9 @@ const SideMenu = (props) => {
     const handleCreateMovie = (movie) => {
         createMovie(movie)
             .then( (movies) => {
-                console.log(JSON.stringify(movies))
+                console.log(' ***** HandleCreateMovie ', JSON.stringify(movies))
                 modal.closeModal()
+                router.push('/')
             }) 
     
     }

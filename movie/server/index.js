@@ -8,7 +8,11 @@ const app = next({ dev })   // set app to be in dev environment
 const handle = app.getRequestHandler()   // set handler to serve pages from pages folder
 const bodyParser = require('body-parser')  
 
-const moviesData  = require('./data.json')
+const fs = require('fs')
+const path = require('path')
+const filePath = './data.json'
+
+const moviesData  = require(filePath)
 
 
 app.prepare().then(() => {       // prepares application to run
@@ -31,25 +35,41 @@ app.prepare().then(() => {       // prepares application to run
   })  
 
   server.get('/api/v1/movies/:id', (req, res) => {
-  const {id} = req.params
-  
-  // const movieIndex  = moviesData.findIndex( (movie) => {
-  //   return  movie.id === id
-  // })
-  // const movie = moviesData[movieIndex]
-  
-  const movie = moviesData.find(movieIndex => movieIndex.id === id)
+    const {id} = req.params
+    
+    // const movieIndex  = moviesData.findIndex( (movie) => {
+    //   return  movie.id === id
+    // })
+    // const movie = moviesData[movieIndex]
+    
+    const movie = moviesData.find(movieIndex => movieIndex.id === id)
 
-  return res.json(movie)
+    return res.json(movie)
 
-  // res.json({message: `updating post with id: ${id}`})
+    // res.json({message: `updating post with id: ${id}`})
   }) 
 
   server.post('/api/v1/movies', (req, res) => {
+    
+    // need to add id
     const movie = req.body
-    console.log(JSON.stringify(movie))
+    
+    moviesData.push(movie)
+    
+    const pathToFile = path.join(__dirname, filePath)
+    const stringifiedData = JSON.stringify(moviesData, null, 2)
+
+    fs.writeFile(pathToFile, stringifiedData, (err) => {
+      if(err) {
+        return res.status(422).send(err)
+      }
+
+      return res.json('Movie has been successfully added!')
+    })
+
+    // console.log(JSON.stringify(movie))
     // res.json({message: 'Saving Post'})
-    return res.json({...movie, created: 'now', author: 'me', rating: 'good'})
+    // return res.json({...movie, created: 'now', author: 'me', rating: 'good'})
   }) 
 
 
