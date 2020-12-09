@@ -87,10 +87,6 @@ export async function getStaticProps(context) {
         }
     })
 
-
-
-
-
     if (movies === null) {
         return {
             notFound: true,

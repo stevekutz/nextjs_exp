@@ -4,22 +4,46 @@ const next = require('next')  // import next framework
 const express = require('express');   // import express framework
 
 const dev = process.env.NODE_ENV !== 'production'  // set env to dev
-const app = next({ dev })   // set app top be in dev environment
-const handle = app.getRequestHandler()   // set handler to serve pages
+const app = next({ dev })   // set app to be in dev environment
+const handle = app.getRequestHandler()   // set handler to serve pages from pages folder
 const bodyParser = require('body-parser')  
+
+const moviesData  = require('./data.json')
+
 
 app.prepare().then(() => {       // prepares application to run
 
   const server = express();      // set up express server
-    
+
+  // // manage requests coming from the server
+  // server.get('*', (req, res) => {
+  //   return handle(req, res)
+  // })
+
+
 
   // use middleware
   server.use(bodyParser.json())  
 
   // create some pracice custom endpoints
   server.get('/api/v1/movies', (req, res) => {
-    res.json({message: 'Hello World'})
+    return res.json(moviesData)
   })  
+
+  server.get('/api/v1/movies/:id', (req, res) => {
+  const {id} = req.params
+  
+  // const movieIndex  = moviesData.findIndex( (movie) => {
+  //   return  movie.id === id
+  // })
+  // const movie = moviesData[movieIndex]
+  
+  const movie = moviesData.find(movieIndex => movieIndex.id === id)
+
+  return res.json(movie)
+
+  // res.json({message: `updating post with id: ${id}`})
+  }) 
 
   server.post('/api/v1/movies', (req, res) => {
     const movie = req.body
@@ -28,10 +52,6 @@ app.prepare().then(() => {       // prepares application to run
     return res.json({...movie, created: 'now', author: 'me', rating: 'good'})
   }) 
 
-    server.patch('/api/v1/movies', (req, res) => {
-    const {id} = req.params
-    res.json({message: `updating post with id: ${id}`})
-  }) 
 
   server.delete('/api/v1/movies', (req, res) => {
     const {id} = req.params
@@ -51,9 +71,9 @@ app.prepare().then(() => {       // prepares application to run
     
     `)
    )
-
+  // using  *  grabs all endpoints
   server.get('*', (req, res) => {    // handle ALL requests to server
-//     next.js handles requests in pages folder for what pages to serve in browser
+    //     next.js handles requests in pages folder for what pages to serve in browser
     return handle(req, res)       // next.js handles requests in pages folder for what pages to serve in browser
    }) 
 
