@@ -8,15 +8,33 @@ const MovieCreateForm = (props) => {
 
     console.log('>:>  cat', categories)
 
-    const [form, setForm] = useState({
+
+
+    // const [form, setForm] = useState({
+    //     name: '',
+    //     description: '',
+    //     rating: '',
+    //     image: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    //     cover: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    //     longDesc: '',
+    
+    // })
+
+     const defaultData = {
         name: '',
+        releaseYear: '',
         description: '',
         rating: '',
         image: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-        cover: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-        longDesc: '',
-    
-    })
+        cover: 'https://images.unsplash.com/photo-1518930259200-3e5b29f42096?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80',
+        longDesc: ''
+    }
+
+    // const [ isInitialDataLoaded, setIsInitialDataLoaded] = useState(false)
+    const formData = props.initialData ? {...props.initialData} : defaultData
+
+    const [form, setForm] = useState(formData)
+
 
     const handleChange = (e) => {
         const target = e.target
@@ -69,6 +87,20 @@ const MovieCreateForm = (props) => {
                     placeholder="Lord of the Rings" 
                     onChange = {handleChange}
                 />
+            </div>
+            <div className="form-group">
+                <label htmlFor="description">Release Year</label>
+                <input
+                onChange={handleChange}
+                value={form.releaseYear}
+                name="releaseYear"
+                type="number"
+                // max="5000" 
+                // min="1900" 
+                className="form-control"
+                id="releaseYear"
+                placeholder={"2000" || form.releaseYear.toString() }/>
+               
             </div>
             <div className="form-group">
                 <label htmlFor="description">Description</label>

@@ -33,13 +33,69 @@
     "image": "https://img.cinemablend.com/filter:scale/quill/0/f/5/2/a/6/0f52a6843a25c1a5c1f9a0c00548cad9e1d912e2.jpg?mw=600"
   },
   {
-    "name": "QQQQ",
-    "description": "WWWWWWW",
+    "name": "New Movie",
+    "releaseYear": "2018",
+    "description": ";asgneigbpsdi;bvlsdkfg;sidbnv;isdjnb;sdjnbv;ksdjnbvl;ksdfjbn",
+    "rating": "5",
+    "image": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+    "cover": "https://images.unsplash.com/photo-1518930259200-3e5b29f42096?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80",
+    "longDesc": "gshsdfbhsdfgbhsdhsfdbesjnvgpioaewbnelkfvnaflk aseflkab fljhdfsb lajshb vlajsh vlasdjkh vlakshjv lasjk vlasdjfv ldsjv lasdfjv adsljv aslv adslfv alkfv lakj fv;kajsnfv;kajnsfbvkajndfbvlkj",
+    "genre": "comedy,crime-drama",
+    "id": "ghmhsw6"
+  },
+  {
+    "name": "ww",
+    "releaseYear": "1",
+    "description": "wwww",
+    "rating": "",
+    "image": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+    "cover": "https://images.unsplash.com/photo-1518930259200-3e5b29f42096?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80",
+    "longDesc": "wwwwwww",
+    "genre": "action",
+    "id": "vod3u72"
+  },
+  {
+    "name": "eeeeeee",
+    "releaseYear": "8",
+    "description": "eeee",
     "rating": "2",
     "image": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    "cover": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    "longDesc": "EEEEEEEEEEEEEEE",
-    "genre": "comedy",
-    "id": "j6qld79"
+    "cover": "https://images.unsplash.com/photo-1518930259200-3e5b29f42096?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80",
+    "longDesc": "rrrrrrr",
+    "genre": "action,romance,comedy",
+    "id": "kj26w0r"
+  },
+  {
+    "name": "wwwwwwww",
+    "releaseYear": "2000",
+    "description": "fwfsdfsfsfsdfsdfsdf",
+    "rating": "",
+    "image": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+    "cover": "https://images.unsplash.com/photo-1518930259200-3e5b29f42096?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80",
+    "longDesc": "sfsdfdsfsdfsdfsdfsdfsfsfdsdf",
+    "genre": "action,romance,comedy,crime-drama",
+    "id": "vbh41hb"
+  },
+  {
+    "name": "aaaa",
+    "releaseYear": "2020",
+    "description": "eeeeeee",
+    "rating": "",
+    "image": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+    "cover": "https://images.unsplash.com/photo-1518930259200-3e5b29f42096?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80",
+    "longDesc": "dgdfgfgdfgdfgdf",
+    "genre": "romance,comedy,crime-drama",
+    "id": "dh7ur37"
+  },
+  {
+    "name": "uu",
+    "releaseYear": "2323",
+    "description": "wwwwww",
+    "rating": "",
+    "image": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+    "cover": "https://images.unsplash.com/photo-1518930259200-3e5b29f42096?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80",
+    "longDesc": "rrrrrrrrrrrr",
+    "genre": "action,romance,comedy,crime-drama",
+    "id": "wa7h6py"
   }
 ]

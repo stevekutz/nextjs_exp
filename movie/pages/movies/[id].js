@@ -37,25 +37,25 @@ const Movie = (props) => {
 
 export default Movie;
 
-// Movie.getInitialProps = async ({query}) => {
-//     // const {id} = context.query.id
-//     const movie = await getMovieById(query.id)
-//     return {movie}
-// }
-
-
-
-export async function getServerSideProps(context) {
-    const {id} = context.query
-    const movie = await getMovieById(id)
-    
-    // const movie = await getMovieById(context.query.id)
-    
-    return {
-        props: {
-            movie,
-        },
-
-
-    }
+Movie.getInitialProps = async ({query}) => {
+    // const {id} = context.query.id
+    const movie = await getMovieById(query.id)
+    return {movie}
 }
+
+
+
+// export async function getServerSideProps(context) {
+//     const {id} = context.query
+//     const movie = await getMovieById(id)
+    
+//     // const movie = await getMovieById(context.query.id)
+    
+//     return {
+//         props: {
+//             movie,
+//         },
+
+
+//     }
+// }

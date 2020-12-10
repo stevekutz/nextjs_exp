@@ -40,7 +40,10 @@ const SideMenu = (props) => {
 
                 {categories.map((category) => {
                     return (
-                        <a key = {category.id}   href="#" className="list-group-item">{category.name}</a>               
+                        <a  
+                            key = {category.id}   
+                            href="#" 
+                            className="list-group-item">{category.name}</a>               
                     )
                 })} 
 

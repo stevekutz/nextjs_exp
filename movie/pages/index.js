@@ -78,6 +78,8 @@ export async function getStaticProps(context) {
     const categories = await getCategories();
     const message = 'Data Not Returned from Promise';
 
+    console.log(' getStaticProps in pages/index.js')
+
     const images = movies.map( (movie) => {
         return {
             id: `image-${movie.id}`,
@@ -109,6 +111,7 @@ export async function getStaticProps(context) {
 // legacy way to do this
 // Home.getInitialProps = async () => {
 //     const movies = await getMovies();
+//     const categories = await getCategories();
 //     const message = 'Static props passed in again';
 
 //     const images = movies.map( (movie) => {
@@ -123,7 +126,9 @@ export async function getStaticProps(context) {
 
 //     return {
 //         movies,
-//         images
+//         images,
+//         categories, 
+//         message,
 //     }
 
 // }

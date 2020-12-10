@@ -9,6 +9,7 @@ class MovieList extends React.Component {
             return text.substr(0, maxLength) + '...';
         }
     
+        return text
     }
 
 
@@ -16,7 +17,7 @@ class MovieList extends React.Component {
 
         {/*  destructure movie data    */}
         const {movies} = this.props
-        // console.log(movies);    
+        console.log(" ?? movieList ??", movies);    
 
         return movies.map((movie) => 
                 
