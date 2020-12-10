@@ -73,9 +73,31 @@ app.prepare().then(() => {       // prepares application to run
   }) 
 
 
-  server.delete('/api/v1/movies', (req, res) => {
+  server.delete('/api/v1/movies/:id', (req, res) => {
     const {id} = req.params
-    res.json({message: `Deleting post with id: ${id}`})
+    const movieIndex = moviesData.findIndex(movieIndex => movieIndex.id === id)
+
+    moviesData.splice(movieIndex, 1)
+
+    const pathToFile = path.join(__dirname, filePath)
+    const stringifiedData = JSON.stringify(moviesData, null, 2)
+
+
+    // Adding timeout here resolve ERR_HTTP_HEADER_SENT error
+    // similar issue ? [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client #19004
+    setTimeout( () => {
+      console.log('TIMEOUT in DELETE')
+    }, 1000)
+
+    fs.writeFile(pathToFile, stringifiedData, (err) => {
+      if(err) {
+        return res.status(422).send(err)
+      }
+
+      return res.json('Movie has been DELETED!')
+    })
+    
+    // res.json({message: `Deleting post with id: ${id}`})
   }) 
 
 
@@ -92,10 +114,11 @@ app.prepare().then(() => {       // prepares application to run
     `)
    )
   // using  *  grabs all endpoints
-  server.get('*', (req, res) => {    // handle ALL requests to server
-    //     next.js handles requests in pages folder for what pages to serve in browser
-    return handle(req, res)       // next.js handles requests in pages folder for what pages to serve in browser
-   }) 
+
+  // server.get('*', (req, res) => {    // handle ALL requests to server
+  //   //     next.js handles requests in pages folder for what pages to serve in browser
+  //   return handle(req, res)       // next.js handles requests in pages folder for what pages to serve in browser
+  //  }) 
 
      
 

@@ -89,12 +89,12 @@ export async function getStaticProps(context) {
         }
     })
 
-    if (movies === null) {
-        return {
-            notFound: true,
-        }
+    // if (movies === null) {
+    //     return {
+    //         notFound: true,
+    //     }
     
-    }
+    // }
 
 
     return {

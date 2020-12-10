@@ -118,22 +118,26 @@ export const createMovie = (movie) => {
 
   // // get a unique id 
 
-  // const movieList = getMovies()
-  // console.log('>>> movieList ', movieList)
+  const movieList = getMovies()
+    console.log('>>> movieList ', movieList)
 
 
-  // do {
-  //   movie.id = Math.random().toString(36).substr(2,7)
-  //   console.log('NOT YET >> ',  movieList.some(elem => elem.id === (getMovieById(movieList.id)).toString() ))
-  //   console.log('exists', movieList.some(elem => elem.id === '1' ))
-  
-  // // if id exists, try again to get a unique id
-  // } while ( movieList.some(elem => elem.id === (getMovieById(movieList.id)).toString()) === true)
+    // do {
+    //   movie.id = Math.random().toString(36).substr(2,7)
+    //   console.log('NOT YET >> ',  movieList.some(elem => elem.id === (getMovieById(movieList.id)).toString() ))
+    //   console.log('exists', movieList.some(elem => elem.id === '1' ))
+    
+    // // if id exists, try again to get a unique id
+    // } while ( movieList.some(elem => elem.id === (getMovieById(movieList.id)).toString()) === true)
 
   movie.id = Math.random().toString(36).substr(2,7)
 
   return axios.post(`${BASE_URL}/api/v1/movies`, movie)
     .then((res) => res.data)  
+}
 
+export const deleteMovie = (id) => {
+  return axios.delete(`${BASE_URL}/api/v1/movies/${id}`)
+    .then( res =>  res.data)
 
 }
