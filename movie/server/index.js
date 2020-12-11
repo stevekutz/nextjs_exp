@@ -85,9 +85,9 @@ app.prepare().then(() => {       // prepares application to run
 
     // Adding timeout here resolve ERR_HTTP_HEADER_SENT error
     // similar issue ? [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client #19004
-    setTimeout( () => {
-      console.log('TIMEOUT in DELETE')
-    }, 1000)
+    // setTimeout( () => { 
+    //   console.log('TIMEOUT in DELETE')
+    // }, 1000)
 
     fs.writeFile(pathToFile, stringifiedData, (err) => {
       if(err) {

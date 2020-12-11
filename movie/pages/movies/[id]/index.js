@@ -1,6 +1,5 @@
-import React from 'react';
 import {useRouter} from 'next/router';
-import {getMovieById, deleteMovie} from '../../actions/movie_data';
+import {getMovieById, deleteMovie} from '../../../actions/movie_data';
 
 const Movie = (props) => {
 

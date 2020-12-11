@@ -8,6 +8,7 @@ import axios from 'axios'
 const BASE_URL = 'http://localhost:3000'
 
 const MOVIE_DATA = []
+let movieIds = []
 // const MOVIE_DATA = [
 //   {
 //     id: '1',
@@ -62,6 +63,11 @@ export const getMovies = () => {
   return axios.get(`${BASE_URL}/api/v1/movies`)
     .then ((res) => {
     console.log(' >>>> getmovies  ', res.data)
+    res.data.map(movie => {
+      movieIds.push(movie.id)
+    })
+
+      // console.log("\t\t ####   movieIds ", movieIds)
       return res.data
     })
 
@@ -118,19 +124,19 @@ export const createMovie = (movie) => {
 
   // // get a unique id 
 
-  const movieList = getMovies()
+    let movieList = getMovies()
     console.log('>>> movieList ', movieList)
 
 
-    // do {
-    //   movie.id = Math.random().toString(36).substr(2,7)
-    //   console.log('NOT YET >> ',  movieList.some(elem => elem.id === (getMovieById(movieList.id)).toString() ))
-    //   console.log('exists', movieList.some(elem => elem.id === '1' ))
+    do {
+      movie.id = Math.random().toString(36).substr(2,7)
+      console.log('NOT YET >> ',  movieIds.some(elem => elem.id === (getMovieById(movieIds.id)).toString() ))
+      console.log('exists', movieIds.some(elem => elem.id === '1' ))
     
-    // // if id exists, try again to get a unique id
-    // } while ( movieList.some(elem => elem.id === (getMovieById(movieList.id)).toString()) === true)
+    // if id exists, try again to get a unique id
+    } while ( movieIds.some(elem => elem.id === (getMovieById(movieIds.id)).toString()) === true)
 
-  movie.id = Math.random().toString(36).substr(2,7)
+  // movie.id = Math.random().toString(36).substr(2,7)
 
   return axios.post(`${BASE_URL}/api/v1/movies`, movie)
     .then((res) => res.data)  

@@ -223,3 +223,12 @@
    ~~~
 
 7) Add axios  `yarn add axios` and import into `actions/movie-data`
+
+....
+
+
+movies/[id].js used for dynamic routes
+
+Within movies, create movies/[id]/index.js to create a dynamic editing page for a specific movie from an id
+
+moved contents of original [id].js to movies/[id]/index.js
