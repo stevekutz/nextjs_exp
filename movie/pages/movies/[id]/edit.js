@@ -5,15 +5,18 @@ import {getMovieById, getCategories} from '../../../actions/movie_data'
 class EditMovie extends React.Component {
 
 
+
     render() {
     
     console.log(' EditMovie props ', this.props)
-    
+      
+
         return(
             <div className = 'container'>
                 <h1> Edit the Movie</h1>
                 {JSON.stringify(this.props.movie)}
-                <MovieCreateForm />
+                {/* {JSON.stringify(this.props.categories)} */}
+                <MovieCreateForm categories = {this.props.categories}/>
             
             </div>
         )
