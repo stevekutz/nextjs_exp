@@ -6,6 +6,7 @@ const MovieCreateForm = (props) => {
 
     const {categories} = props
 
+    console.log('~~~ props ', props)
     console.log('>:>  cat', categories)
 
 
@@ -182,15 +183,15 @@ const MovieCreateForm = (props) => {
                 <option>historical</option>
                 <option>action</option>
                 */}
-
+                {/*
                 {categories.map((cat) => {
                     return (
                        <option key = {cat.id}>{cat.name}</option> 
                     
-                    )
-                
-                
+                    )                
                 })}
+                */}
+
 
                 </select>
             </div>
