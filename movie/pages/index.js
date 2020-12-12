@@ -11,9 +11,24 @@ import {getMovies, getCategories} from '../actions/movie_data';
 const Home = (props) => {
 
     const {categories, movies, message, images} = props;
+    const [filter, setFilter] = useState('all')
 
-    
-    console.log('index.js Home >> ', props)
+
+    const changeCategory = category => {
+        setFilter(category)
+
+    }
+
+    const filterMovies = movies => {
+        if(filter  === 'all') {
+            return movies
+        }
+        
+        return movies.filter((movie) => {
+            return movie.genre && movie.genre.includes(filter)
+
+        })
+    }
 
     return (
         <div>
@@ -24,28 +39,19 @@ const Home = (props) => {
                     <div className="row">
                         <div className="col-lg-3">
                             <SideMenu
+                                changeCategory = {changeCategory}
                                 categories = {categories}
+                                activeCategory = {filter}
                             />
                         </div>
                         <div className="col-lg-9">
                             <Carousel images = {images}/>
+                            <h1>Displaying: {filter} movies</h1>
                             <div className="row justify-content-center">
-                                {/* 
-                                {(errorMessage.length) 
-                                    ?
-                                        <h1 className = "alert alert-warning rounded-pill"> {errorMessage}</h1>
-                                    :
-                                        <MovieList 
-                                            movies = {movies}        
-                                        />
-                                }
-                                */}
-
-                                                                
+                                                               
                                 <MovieList 
-                                    movies = {movies || []}        
+                                    movies = {filterMovies(movies) || []}        
                                 />
-
 
                             </div>
                         </div>

@@ -45,6 +45,7 @@ let movieIds = []
 // ]
 
  const CATEGORY_DATA = [
+  {id: 0, name: 'all'},
   {id: 1, name: 'action'},
   {id: 2, name: 'romance'},
   {id: 3, name: 'comedy'},
