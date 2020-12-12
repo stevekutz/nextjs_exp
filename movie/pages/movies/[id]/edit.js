@@ -28,7 +28,7 @@ class EditMovie extends React.Component {
         
 
         return(
-            <div className = 'container'>
+            <div className = 'container update-movie'>
                 <h1> Edit the Movie</h1>
                 
                 {/* {JSON.stringify(this.props.categories)} */}

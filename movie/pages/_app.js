@@ -32,7 +32,7 @@ class MovieApp extends App {
 				{/* example of using styled-jsx */}        
                 <style jsx> {`
                     .base-page {
-                        padding-top: 80px;
+                        padding-top: 1px;
                     }
                 `}</style> 
 			

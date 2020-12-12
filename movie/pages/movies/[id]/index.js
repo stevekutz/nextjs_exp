@@ -32,7 +32,7 @@ const Movie = (props) => {
                     role="button">Delete
                 </button>
                 <button 
-                    className="btn btn-warning btn-lg" 
+                    className="btn btn-warning btn-lg button-outline" 
                     onClick = { () => router.push(`/movies/${id}/edit`)}
                     role="button">Edit
                 </button>
