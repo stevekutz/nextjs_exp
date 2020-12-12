@@ -21,7 +21,7 @@ const MovieCreateForm = (props) => {
     }
 
     const [ isInitialDataLoaded, setIsInitialDataLoaded] = useState(false)
-    const formData = props.initialData ? {...props.initialData} : defaultData
+    const formData = props.movie ? {...props.movie} : defaultData
 
     const [form, setForm] = useState(formData)
 
@@ -196,7 +196,8 @@ const MovieCreateForm = (props) => {
             <button 
                 onClick = {submitForm} 
                 type="button" 
-                className="btn btn-primary">Save changes
+                className="btn btn-primary">
+                {props.submitButton || 'Create'}
             </button>
         </form>
     )
