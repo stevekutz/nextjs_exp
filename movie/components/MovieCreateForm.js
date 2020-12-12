@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 
@@ -10,18 +10,7 @@ const MovieCreateForm = (props) => {
     // console.log('>:>  cat', categories)
 
 
-
-    // const [form, setForm] = useState({
-    //     name: '',
-    //     description: '',
-    //     rating: '',
-    //     image: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-    //     cover: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-    //     longDesc: '',
-    
-    // })
-
-     const defaultData = {
+    const defaultData = {
         name: '',
         releaseYear: '',
         description: '',
@@ -31,10 +20,19 @@ const MovieCreateForm = (props) => {
         longDesc: ''
     }
 
-    // const [ isInitialDataLoaded, setIsInitialDataLoaded] = useState(false)
+    const [ isInitialDataLoaded, setIsInitialDataLoaded] = useState(false)
     const formData = props.initialData ? {...props.initialData} : defaultData
 
     const [form, setForm] = useState(formData)
+
+    useEffect( () => {
+        if(props.movie) {
+            setForm(props.movie)
+            setIsInitialDataLoaded(true)
+        }
+    
+    }, [isInitialDataLoaded])
+
 
 
     const handleChange = (e) => {
@@ -195,7 +193,11 @@ const MovieCreateForm = (props) => {
 
                 </select>
             </div>
-            <button onClick = {submitForm} type="button" className="btn btn-primary">Save changes</button>
+            <button 
+                onClick = {submitForm} 
+                type="button" 
+                className="btn btn-primary">Save changes
+            </button>
         </form>
     )
 

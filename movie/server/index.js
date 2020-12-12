@@ -100,7 +100,33 @@ app.prepare().then(() => {       // prepares application to run
     // res.json({message: `Deleting post with id: ${id}`})
   }) 
 
+  server.patch('/api/v1/movies/:id', (req, res) => {
+    const {id} = req.params
+    const movie = req.body
+    const movieIndex = moviesData.findIndex(m => m.id === id)
 
+    moviesData[movieIndex] = movie
+
+    const pathToFile = path.join(__dirname, filePath)
+    const stringifiedData = JSON.stringify(moviesData, null, 2)
+
+
+    // Adding timeout here resolve ERR_HTTP_HEADER_SENT error
+    // similar issue ? [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client #19004
+    // setTimeout( () => { 
+    //   console.log('TIMEOUT in DELETE')
+    // }, 1000)
+
+    fs.writeFile(pathToFile, stringifiedData, (err) => {
+      if(err) {
+        return res.status(422).send(err)
+      }
+
+      return res.json(movie)
+    })
+    
+    // res.json({message: `Deleting post with id: ${id}`})
+  }) 
 
 
 
