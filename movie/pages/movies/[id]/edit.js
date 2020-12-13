@@ -1,6 +1,6 @@
 import React from 'react'
 import MovieCreateForm from '../../../components/MovieCreateForm';
-import {getMovieById, getCategories, updateMovie} from '../../../actions/movie_data'
+import {getMovieById, getCategories, updateMovie} from '../../../actions'
 import Router from 'next/router'
 
 class EditMovie extends React.Component {

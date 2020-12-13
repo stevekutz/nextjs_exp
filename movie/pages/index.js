@@ -5,7 +5,7 @@ import MovieList from '../components/movieList';
 
 
 // JSON data represents API response
-import {getMovies, getCategories} from '../actions/movie_data';
+import {getMovies, getCategories} from '../actions';
 
 
 const Home = (props) => {

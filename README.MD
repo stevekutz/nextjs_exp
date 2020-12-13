@@ -232,3 +232,28 @@ movies/[id].js used for dynamic routes
 Within movies, create movies/[id]/index.js to create a dynamic editing page for a specific movie from an id
 
 moved contents of original [id].js to movies/[id]/index.js
+
+##### Setting up custom endpoint
+create pages/posts.js
+
+~~~ js
+
+~~~
+
+
+create api/v1/posts.js
+
+~~~ js
+
+~~~
+
+
+add function into actions/index.js
+
+   ~~~ js
+   export const getPosts = () => {
+   return axios.get(`${BASE_URL}/api/v1/posts`)
+      .then(res => res.data)
+
+   }
+   ~~~

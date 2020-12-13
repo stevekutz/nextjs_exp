@@ -14,7 +14,7 @@ const filePath = './data.json'
 
 const moviesData  = require(filePath)
 
-
+// set up express server
 app.prepare().then(() => {       // prepares application to run
 
   const server = express();      // set up express server
@@ -34,6 +34,7 @@ app.prepare().then(() => {       // prepares application to run
     return res.json(moviesData)
   })  
 
+  // define endpoints
   server.get('/api/v1/movies/:id', (req, res) => {
     const {id} = req.params
     
@@ -132,13 +133,13 @@ app.prepare().then(() => {       // prepares application to run
 
 
 
-
-   server.get('/faq', (req, res) => 
+  // generic test endpoint
+  server.get('/faq', (req, res) => 
     res.send(`
         <html><head></head><body><h3> Something from the faq </h3></body></html>
     
     `)
-   )
+  )
   // using  *  grabs all endpoints
 
   // server.get('*', (req, res) => {    // handle ALL requests to server
