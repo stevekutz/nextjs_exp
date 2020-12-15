@@ -160,3 +160,8 @@ export const getPosts = () => {
     .then(res => res.data)
 
 }
+
+export const getImages = () => {
+  return axios.get('https://dog.ceo/api/breeds/image/random/21')
+  .then(res => res.data)
+}

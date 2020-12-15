@@ -53,3 +53,31 @@ footer {
 .button-outline {
     outline-style: none;
 }
+
+.post-header {
+  text-align: center;
+}
+
+.post-container {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center ;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding-bottom: 200px;
+}
+
+.info-card {
+  width: 200px;
+  border: 1px solid rgb(122, 121, 121);
+  margin: 5px;
+  height: 150px;
+}
+
+.image-form {
+  padding: 5px;
+  height: 40px;
+}

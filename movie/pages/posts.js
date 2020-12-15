@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
-import {getPosts} from '../actions'
+import {getPosts, getImages} from '../actions'
+import '../styles/index.scss'
+
 
 
 class Posts extends Component {
@@ -13,38 +15,32 @@ class Posts extends Component {
 
     render() {
 
-        const {posts} = this.props        
+        const {posts, images} = this.props        
         console.log('posts ', posts)
         console.log(' props ', this.props )
 
         return (
-            
-            <div className="row row-cols-1 row-cols-md-3 g-4">   
-
-                
-                {posts.map( (post) => {
-                    return (
-                    
-                        <div class="col" key = {post.id}>
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <h5 class="card-title">{post.title}</h5>
-                                    <p class="card-text">{post.body}</p>
-                                </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                            </div>
-                        </div>                    
-                    )                 
-                })}
                
-            </div>
-        )
 
-
-
+                    <div className = "post-container">
+                        {posts.map((post) => {
+                            return (
+                                <div  key = {post.id}> 
+                                        <div className = "info-card">
+                                        {/* <img src = {`${comic_info.data.results[0].thumbnail.path}.${comic_info.data.results[0].thumbnail.extension}`}/> */}
+                                            <div style = {{width: "200px"}}>
+                                                <img className = "image-form"  src = {`${images.message[`${post.id}`]}`} />
+                                            </div>
+                                            <h5>{post.id}{post.title}</h5>
+                                            <p>{post.description}</p>
+                                        </div>                                                        
+                                </div>                
+                            )                        
+                        })}                              
+                    </div>                
+               
+                    
+        )       
     }
 
 }
@@ -55,8 +51,10 @@ export default Posts
 // use getStaticProps to pre-render
 export async function getStaticProps(context) {
     const posts = await getPosts()
+    const images = await getImages()
+
     return {
-        props: {posts}
+        props: {posts, images}
     }
 
 }

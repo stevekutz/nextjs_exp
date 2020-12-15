@@ -1,12 +1,14 @@
 import React from 'react';
-
+import forceIpsum  from '../data/text-data'
 
 const About = () => {
     
     
     return (
-        <div>
-            <p> About Page </p>
+        <div style = {{ paddingBottom: "150px"}}>
+            <h1> About Page </h1>
+            <p> {forceIpsum} </p>
+
         </div>
     
     )
